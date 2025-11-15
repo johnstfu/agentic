@@ -1,39 +1,43 @@
 #!/bin/bash
 
-# Script de lancement du Fact-Checker Agent
-# Corrigé et fonctionnel
+# Script de démarrage pour Fact-Checker IA v3.2.1
 
-echo "🔍 Fact-Checker Agent - Démarrage"
-echo "=================================="
+echo "=========================================="
+echo "   🔍 Fact-Checker IA v3.2.1"
+echo "=========================================="
+echo ""
 
-# Chemin du projet
-PROJECT_DIR="/Users/rayanekryslak-medioub/Desktop/AlbertSchool1/Agentic/Cnews"
+# Chemin du projet = dossier du script
+PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$PROJECT_DIR"
 
-# Vérifier l'environnement virtuel
+# Vérification de l'environnement virtuel
 if [ ! -d "venv" ]; then
-    echo "❌ Environnement virtuel non trouvé. Création en cours..."
+    echo "⚠️  Environnement virtuel non trouvé"
+    echo "📦 Création de l'environnement virtuel..."
     python3 -m venv venv
     ./venv/bin/pip install --upgrade pip
-    ./venv/bin/pip install streamlit plotly duckduckgo-search beautifulsoup4 \
-        langchain langchain-openai langchain-community python-dotenv requests pydantic
 fi
 
-# Vérifier le fichier .env
+# Installation des dépendances
+echo "📦 Installation des dépendances..."
+./venv/bin/pip install -q -r requirements.txt
+
+# Vérification du fichier .env
 if [ ! -f ".env" ]; then
-    echo "⚠️  Fichier .env non trouvé. Création à partir du template..."
-    if [ -f "env.template" ]; then
-        cp env.template .env
-        echo "✅ Fichier .env créé. Veuillez configurer votre OPENAI_API_KEY"
-    fi
+    echo "⚠️  Fichier .env non trouvé"
+    echo "📝 Création depuis env.template..."
+    cp env.template .env
+    echo "❗ IMPORTANT: Éditez .env avec vos clés API avant de continuer"
+    exit 1
 fi
 
-# Lancement de Streamlit
+# Lancement de l'application
 echo ""
-echo "🚀 Lancement de l'interface Streamlit..."
+echo "🚀 Lancement de l'application..."
 echo "📍 URL: http://localhost:8501"
 echo ""
 echo "Pour arrêter: Ctrl+C"
 echo ""
 
-./venv/bin/python -m streamlit run streamlit_fact_checker.py --server.port 8501
+./venv/bin/streamlit run src/ui/app.py --server.port 8501

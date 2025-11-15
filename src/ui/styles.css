@@ -1,0 +1,162 @@
+/* VérificateurIA - Styles v2.0 */
+
+/* Reset et base */
+.main .block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    max-width: 800px;
+}
+
+/* Typography */
+.main-header {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+}
+
+/* Input */
+.stTextArea > div > div > textarea {
+    border: 2px solid #ecf0f1;
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.stTextArea > div > div > textarea:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Button */
+.stButton > button {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+/* Verdict cards */
+.verdict-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+.verdict-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.verdict-true {
+    border-left: 4px solid #27ae60;
+}
+
+.verdict-false {
+    border-left: 4px solid #e74c3c;
+}
+
+.verdict-uncertain {
+    border-left: 4px solid #f39c12;
+}
+
+/* Confidence meter */
+.confidence-meter {
+    background: #ecf0f1;
+    border-radius: 20px;
+    height: 8px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.confidence-fill {
+    height: 100%;
+    border-radius: 20px;
+    transition: width 1s ease;
+}
+
+.confidence-true {
+    background: linear-gradient(90deg, #27ae60, #2ecc71);
+}
+
+.confidence-false {
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.confidence-uncertain {
+    background: linear-gradient(90deg, #f39c12, #e67e22);
+}
+
+/* Source cards */
+.source-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border: 1px solid #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+.source-card:hover {
+    border-color: #3498db;
+    box-shadow: 0 4px 16px rgba(52, 152, 219, 0.1);
+}
+
+.source-high {
+    border-left: 4px solid #27ae60;
+}
+
+.source-medium {
+    border-left: 4px solid #f39c12;
+}
+
+.source-low {
+    border-left: 4px solid #e74c3c;
+}
+
+/* Hide Streamlit elements */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* Metrics */
+.metric-container {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: 1px solid #ecf0f1;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}

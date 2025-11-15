@@ -1,3 +1,37 @@
+# Environnement virtuel
+venv/
+.env
+.env.*
+
+# Bases de données locales
+*.db
+*.db-shm
+*.db-wal
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Logs et temporaires
+*.log
+*.sqlite
+*.sqlite3
+*.pid
+
+# Streamlit
+.streamlit/
+
+# Tests / coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
 # Variables d'environnement (CLÉS API)
 .env
 .env.local
