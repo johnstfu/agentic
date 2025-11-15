@@ -16,6 +16,14 @@ cp env.template .env
 streamlit run src/ui/app.py
 ```
 
+### Activer le hook anti-secrets (recommandé)
+
+Empêche d'accidentellement committer des clés API ou des fichiers `.env` :
+
+```bash
+git config core.hooksPath .githooks
+```
+
 ## 📁 Structure
 
 ```

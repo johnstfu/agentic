@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Block committing secrets and env files
+
+set -eu
+
+# Prevent committing .env or any .env.* file
+if git diff --cached --name-only | grep -E '(^|/)\.env($|\\.)' >/dev/null 2>&1; then
+  echo "❌ Commit aborted: .env files must not be committed."
+  echo "   Add secrets only to your local .env and keep it untracked."
+  exit 1
+fi
+
+# Scan staged diff for common secret patterns
+if git diff --cached -U0 | grep -E '(OPENAI_API_KEY=|TAVILY_API_KEY=|sk-[A-Za-z0-9_-]{20,}|tvly-[A-Za-z0-9_-]{10,})' >/dev/null 2>&1; then
+  echo "❌ Commit aborted: potential secret detected in staged changes."
+  echo "   Remove secrets from code and use .env (not committed)."
+  exit 1
+fi
+
+exit 0
+
+
